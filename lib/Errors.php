@@ -1,6 +1,7 @@
 <?php
 ClassLoader::loadByName("TextRepository");
 
+//Diese Klasse stammt von mir
 class Errors
 {
     public static function getErrorByKey($key)

@@ -1,6 +1,7 @@
 <?php
 require_once "../lib/RootPath.php";
 
+//Diese Klasse stammt von mir
 class ClassLoader
 {
     private static $classes = array(

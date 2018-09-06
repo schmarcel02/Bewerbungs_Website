@@ -20,6 +20,9 @@
  *   Sollte ein Teil in der URI nicht vorhanden sein, wird als Controllername
  *     "DefaultController" bzw. "index" als Funktionsname verwendet.
  */
+
+//Diese Klasse stammt vom MVC
+//Ich habe sie nur um die notFound-Methode und die Parameter-Übergabe erweitert
 class Dispatcher
 {
     /**
@@ -51,6 +54,7 @@ class Dispatcher
             $method = $uriFragments[1];
         }
 
+        // Parameter ermitteln und in Globals-Array speichern
         for ($i = 2; !empty($uriFragments[$i]); $i++) {
             $x = $i - 2;
             $GLOBALS['parameter' . $x] = $uriFragments[$i];

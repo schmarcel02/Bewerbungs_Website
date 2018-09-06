@@ -70,6 +70,7 @@ require_once 'ConnectionHandler.php';
  *     throw new Exception("Ein Fehler ist aufgetreten: $result->error");
  *   }
  */
+//Diese Klasse stammt vom MVC
 class Repository
 {
     /**

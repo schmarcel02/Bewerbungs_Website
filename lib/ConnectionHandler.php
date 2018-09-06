@@ -13,6 +13,9 @@
  *   // ...
  *   $connection = ConnectionHandler::getConnection();
  */
+
+//Diese Klasse stammt vom MVC
+//Ich habe sie um die Methoden executeQuery, selectSpecific, selectRow und selectRows erweitert
 class ConnectionHandler
 {
     /**

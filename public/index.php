@@ -1,4 +1,5 @@
 <?php
+//Diese Datei stammt vom MVC
 
 /*
  * Die index.php Datei ist der Einstiegspunkt des MVC. Hier werden zuerst alle

@@ -1,4 +1,5 @@
 <?php
+//Diese Datei stammt vom MVC
 return array(
     // Datebankkonfiguration
     'database' => array(

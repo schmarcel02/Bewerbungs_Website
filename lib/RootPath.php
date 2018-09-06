@@ -1,5 +1,6 @@
 <?php
 
+//Diese Klasse stammt von mir
 class RootPath
 {
     public static function getRootPath($path)

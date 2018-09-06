@@ -53,6 +53,9 @@
  *     <?php } ?>
  *   </ul>
  */
+
+//Diese Klasse stammt vom MVC
+//Ich habe sie nur um die displayView-Methode erweitert
 class View
 {
     private $viewfile;
