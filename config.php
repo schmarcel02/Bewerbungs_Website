@@ -3,10 +3,10 @@
 return array(
     // Datebankkonfiguration
     'database' => array(
-        'host' => 'myWebsite.schmarcel.ch',
-        'username' => 'user',
-        'password' => 'gibbiX12345',
-        'database' => 'portfolio',
+        'host' => 'marcelschmutz.ch',
+        'username' => 'db_user',
+        'password' => 'sich3r3sPasswort@db',
+        'database' => 'mschmutz_portfolio',
     ),
 );
 ?>

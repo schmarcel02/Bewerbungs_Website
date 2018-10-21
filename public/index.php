@@ -18,6 +18,7 @@ require_once '../lib/View.php';
 require_once '../lib/Fragment.php';
 require_once '../lib/RootPath.php';
 require_once '../lib/ClassLoader.php';
+require_once '../lib/CSSLoader.php';
 session_start();
 ClassLoader::loadByName('Util');
 ClassLoader::loadByName('UserUtil');

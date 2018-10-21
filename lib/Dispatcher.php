@@ -22,7 +22,7 @@
  */
 
 //Diese Klasse stammt vom MVC
-//Ich habe sie nur um die notFound-Methode und die Parameter-Übergabe erweitert
+//Ich habe sie nur um die notFound-Methode und die Parameter-Funktionalität erweitert
 class Dispatcher
 {
     /**
@@ -32,7 +32,7 @@ class Dispatcher
     public static function dispatch()
     {
         // Die URI wird aus dem $_SERVER Array ausgelesen und in ihre
-        //   Einzelteile zerlegt.
+        // Einzelteile zerlegt.
         // /user/index/foo --> ['user', 'index', 'foo']
         $uri = $_SERVER['REQUEST_URI'];
         $uri = strtok($uri, '?'); // Erstes ? und alles danach abschneiden
@@ -60,20 +60,25 @@ class Dispatcher
             $GLOBALS['parameter' . $x] = $uriFragments[$i];
         }
 
+        // Überprüfen ob der angegebene Controller existiert
         $path = "../controller/$controllerName.php";
         if (!file_exists($path)) {
+            // Wenn nicht wird die 404-Seite angezeigt
             self::notFound();
         } else {
+            // Eine neue Instanz des Controllers wird erstellt und die gewünschte
+            // Methode darauf aufgerufen.
             require_once $path;
             $controller = new $controllerName();
+            // Überprüfen ob die angegebene Methode existiert
             if (!method_exists($controller, $method)) {
+                // Wenn nicht wird die 404-Seite angezeigt
                 self::notFound();
             } else {
+                // Die Methode wird aufgerufen
                 $controller->$method();
             }
         }
-        // Eine neue Instanz des Controllers wird erstellt und die gewünschte
-        //   Methode darauf aufgerufen.
     }
 
     private static function notFound()

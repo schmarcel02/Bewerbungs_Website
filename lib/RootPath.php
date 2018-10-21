@@ -5,7 +5,7 @@ class RootPath
 {
     public static function getRootPath($path)
     {
-        return $_SERVER['DOCUMENT_ROOT'] . '/../' . $path;
+        return $_SERVER['DOCUMENT_ROOT'] . '/' . $path;
     }
 
     public static function root_require($path)

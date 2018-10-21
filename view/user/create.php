@@ -17,7 +17,7 @@
         <div><label for="txtKey"><?= TextUtil::getText("label_key") ?></label><br><input class="form_input"
                                                                                          type="password" id="txtKey"
                                                                                          name="txtKey"></div>
-        <button type="submit">Register</button>
+        <button type="submit"><?= TextUtil::getText("button_register") ?></button>
         <br>
         <?= TextUtil::getText("text_required_fields") ?>
     </form>

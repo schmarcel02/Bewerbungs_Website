@@ -3,11 +3,12 @@ ClassLoader::loadByName("Repository");
 
 class UserRepository
 {
-    public static function insert($email, $password, $permission)
+    public static function insert($email, $password, $permission, $organisation = "No Organisation")
     {
-        $query = "INSERT INTO user (email, password, permission) VALUES (?, ?, ?)";
-        ConnectionHandler::executeQuery($query, "sss", $email, $password, $permission);
+        $query = "INSERT INTO user (email, password, permission, organisation) VALUES (?, ?, ?, ?)";
+        ConnectionHandler::executeQuery($query, "ssss", $email, $password, $permission, $organisation);
     }
+
 
     public static function update($id, $email, $password)
     {

@@ -1,7 +1,11 @@
+<?php
+CSSLoader::loadByName("editor");
+CSSLoader::loadByName("permission-editor");
+?>
 <div class="full">
     <div id="permission-editor" class="editor">
-        <div id="permission-editor-left" class="editor-left">
-            <select id="permission-editor-list" class="editor-list" size="2" ondblclick="changePermission()">
+        <div id="left" class="editor-left">
+            <select id="user-list" class="editor-list edeitor-element" size="2" ondblclick="changePermission()">
                 <?php
                 for ($i = 0; $i < count($users); $i++) {
                     echo "<option data-id='" . $users[$i]->id . "' data-email='" . $users[$i]->email . "' data-permission='" . $users[$i]->permission . "'>" . $users[$i]->email . ": " . $users[$i]->permission . "</option>";
@@ -9,7 +13,7 @@
                 ?>
             </select>
         </div>
-        <div id="permission-editor-right" class="editor-right">
+        <div id="right" class="editor-right">
             <h2>Description: </h2>
             <p>0: All Permissions / Admin</p>
             <p>1: No Permissions / Banned</p>
@@ -21,7 +25,7 @@
 </div>
 <script>
     function changePermission() {
-        var list = document.getElementById("permission-editor-list");
+        var list = document.getElementById("user-list");
         var selected = list[list.selectedIndex];
         var id = selected.getAttribute("data-id");
         var email = selected.getAttribute("data-email");

@@ -7,6 +7,7 @@ $nav_height = 45;
 }
 
 body, html {
+    position: absolute;
     padding: 0;
     margin: 0;
     width: 100%;
@@ -33,74 +34,12 @@ body, html {
     z-index: 999;
 }
 
-.show-error, .nav:hover ~ .error {
+.show-error, .my-nav:hover ~ .error {
     margin-top: <?= $nav_height ?>px;
 }
 
 .hide-error {
     margin-top: 0;
-}
-
-/* Admin Editors */
-
-.editor {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-}
-
-.editor-left {
-    width: 30%;
-    height: 100%;
-    display: inline-block;
-    float: left;
-}
-
-.editor-right {
-    width: 70%;
-    height: 100%;
-    display: inline-block;
-}
-
-.editor-list, #text-editor-button-new, #text-editor-text, #text-editor-button-save, #text-editor-language {
-    box-sizing: border-box;
-    border: none;
-    margin: 0;
-    padding: 0;
-}
-
-.editor-list {
-    width: 100%;
-}
-
-#text-editor-list {
-    height: 90%;
-}
-
-#text-editor-button-new {
-    width: 100%;
-    height: 10%;
-}
-
-#text-editor-buttons {
-    width: 100%;
-    height: 5%;
-}
-
-#text-editor-language {
-    height: 100%;
-    width: 50px;
-}
-
-#text-editor-button-save {
-    height: 100%;
-    width: 80px;
-}
-
-#text-editor-text {
-    width: 100%;
-    height: 95%;
-    padding: 5px;
 }
 
 #label-semester {
@@ -118,10 +57,6 @@ body, html {
     font-size: large;
 }
 
-#permission-editor-list {
-    height: 100%;
-}
-
 /* Containers */
 
 .content-body {
@@ -132,22 +67,8 @@ body, html {
     max-height: calc(100% - <?= $nav_height ?>px - 4px);
 }
 
-.content, .content-wrapper, .full {
-    background-color: white;
-}
-
-.content, .content-wrapper {
-    padding: 10px 15px;
-}
-
 .content {
 
-}
-
-.full {
-    position: absolute;
-    width: 100%;
-    height: 100%;
 }
 
 .content-wrapper {
@@ -157,9 +78,24 @@ body, html {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
 }
 
+.full {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.content, .content-wrapper {
+    padding: 10px 15px;
+    margin-bottom: 60px;
+}
+
+.content, .content-wrapper, .full {
+    background-color: white;
+}
+
 /* Navigation (W3Schools) */
 
-.nav {
+.my-nav {
     position: fixed;
     overflow: hidden;
     width: 100%;
@@ -167,7 +103,7 @@ body, html {
     z-index: 1000;
 }
 
-.nav a {
+.my-nav a {
     float: left;
     display: block;
     color: #f2f2f2;
@@ -177,7 +113,11 @@ body, html {
     font-size: 1em;
 }
 
-.nav a:hover {
+.my-nav a.language-link {
+    float: right;
+}
+
+.my-nav a:hover {
     background-color: #ddd;
     color: black;
 }
@@ -187,34 +127,55 @@ body, html {
     color: white;
 }
 
-.nav .icon {
+.my-nav .icon {
     display: none;
 }
 
 @media screen and (max-width: 600px) {
-    .nav a:not(:first-child) {
+    body, html {
+        width: 600px;
+    }
+
+    .my-nav a:not(:first-child) {
         display: none;
     }
 
-    .nav a.icon {
+    .my-nav a.icon {
         float: right;
         display: block;
     }
 
-    .nav.responsive .icon {
+    .my-nav.responsive .icon {
         position: absolute;
         right: 0;
         top: 0;
     }
 
-    .nav.responsive a {
+    .my-nav.responsive #german-link {
+        position: absolute;
+        right: 0;
+        top: <?= $nav_height ?>px;
+    }
+
+    .my-nav.responsive #english-link {
+        position: absolute;
+        right: 0;
+        top: <?= $nav_height*2 ?>px;
+    }
+
+    .my-nav.responsive a {
         float: none;
         display: block;
         text-align: left;
     }
+
+    .content-wrapper {
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 820px) {
     .desktop-only {
         display: none !important;
     }

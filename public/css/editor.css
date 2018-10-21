@@ -1,0 +1,29 @@
+.editor {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.editor-left {
+    width: 30%;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+
+.editor-right {
+    width: 70%;
+    height: 100%;
+    display: inline-block;
+}
+
+.editor-element {
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.editor-list {
+    width: 100%;
+}

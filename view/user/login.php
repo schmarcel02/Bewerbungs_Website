@@ -7,6 +7,6 @@
         <div><label for="txtPass"><?= TextUtil::getText("label_pass") ?></label><br><input class="form_input"
                                                                                            type="password" id="txtPass"
                                                                                            name="txtPass"></div>
-        <button type="submit">Login</button>
+        <button type="submit"><?= TextUtil::getText("button_login") ?></button>
     </form>
 </div>

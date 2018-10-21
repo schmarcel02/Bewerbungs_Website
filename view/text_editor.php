@@ -1,7 +1,11 @@
+<?php
+CSSLoader::loadByName("editor");
+CSSLoader::loadByName("text-editor");
+?>
 <div class="full">
     <div id="text-editor" class="editor">
-        <div id="text-editor-left" class="editor-left">
-            <select id="text-editor-list" class="editor-list" size="2" onchange="changeText()">
+        <div id="left" class="editor-left">
+            <select id="text-list" class="editor-list editor-element" size="2" onchange="changeText()">
                 <?php
                 echo "<option value='" . $briefs[0]->brief . "' selected>" . $briefs[0]->brief . "</option>";
                 for ($i = 1; $i < count($briefs); $i++) {
@@ -9,20 +13,20 @@
                 }
                 ?>
             </select>
-            <button id="text-editor-button-new" onclick="newText()">
+            <button id="button-new" class="editor-element" onclick="newText()">
                 New
             </button>
         </div>
-        <div id="text-editor-right" class="editor-right">
-            <div id="text-editor-buttons">
-                <select id="text-editor-language" name="" onchange="changeText()">
+        <div id="right" class="editor-right">
+            <div id="buttons">
+                <select id="language" class="editor-element" name="" onchange="changeText()">
                     <option value="de" selected>de</option>
                     <option value="en">en</option>
                     <option value="fr">fr</option>
                 </select>
-                <button id="text-editor-button-save" onclick="save()">Save</button>
+                <button id="button-save" class="editor-element" onclick="save()">Save</button>
             </div>
-            <textarea id="text-editor-text" name="text" onchange="changed = true"></textarea>
+            <textarea id="textarea" class="editor-element" name="text" onchange="changed = true"></textarea>
         </div>
     </div>
 </div>
@@ -31,12 +35,12 @@
     var changed = false;
     var currentBrief;
     var currentLanguage;
-    var elem = document.getElementById('text-editor-list');
-    elem.addEventListener('keydown', function (e) {
+    document.getElementById('text-list').addEventListener('keydown', function (e) {
         if (e.keyCode === 46) {
             deleteText()
         }
     });
+
     getText();
 
     function reqListener() {
@@ -52,18 +56,18 @@
     }
 
     function getText() {
-        currentBrief = document.getElementById("text-editor-list").value;
-        currentLanguage = document.getElementById("text-editor-language").value;
+        currentBrief = document.getElementById("text-list").value;
+        currentLanguage = document.getElementById("language").value;
         var oReq = new XMLHttpRequest();
         oReq.onload = function () {
-            document.getElementById("text-editor-text").value = this.responseText;
+            document.getElementById("textarea").value = this.responseText;
         };
         oReq.open("get", "/text/getText/" + currentBrief + "/" + currentLanguage, true);
         oReq.send();
     }
 
     function save() {
-        var text = document.getElementById("text-editor-text").value;
+        var text = document.getElementById("textarea").value;
         var oReq = new XMLHttpRequest();
         oReq.onload = function () {
         };
@@ -80,7 +84,7 @@
     }
 
     function deleteText() {
-        var brief = document.getElementById("text-editor-list").value;
+        var brief = document.getElementById("text-list").value;
         if (confirm("Do you want to delete '" + brief + "'?")) {
             window.location.href = "/text/delete/" + brief;
         }

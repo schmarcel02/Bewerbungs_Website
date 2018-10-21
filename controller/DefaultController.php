@@ -10,6 +10,9 @@ class DefaultController
 
     public function home()
     {
-        View::displayView("default/home");
+        if (Util::isLoggedIn())
+            View::displayView("default/home_loggedin");
+        else
+            View::displayView("default/home");
     }
 }

@@ -1,3 +1,3 @@
 <div class="content">
-    404 - Site not found
+    <?= TextUtil::getText("text_notfound") ?>
 </div>

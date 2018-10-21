@@ -48,6 +48,7 @@ class UserController
 
         $mail = Util::requirePost('txtMail');
         $pass = Util::requirePost('txtPass');
+        $org = Util::getPost('txtOrg');
         if (($key = Util::getPost('txtKey')))
             $perm = UserUtil::checkKey($key);
         else
@@ -55,7 +56,7 @@ class UserController
 
         UserUtil::restrictUserExistsByMail($mail);
         UserUtil::validate($mail);
-        UserRepository::insert($mail, UserUtil::hash($pass), $perm);
+        UserRepository::insert($mail, UserUtil::hash($pass), $perm, $org ? $org : "No Organisation");
         UserUtil::setUserData(UserRepository::selectByMail($mail));
 
         Util::location("default/home");

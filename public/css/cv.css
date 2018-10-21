@@ -1,0 +1,20 @@
+td {
+    border: none;
+    padding: 0 10px;
+    border-collapse: collapse;
+    vertical-align: top;
+    min-width: 145px;
+}
+
+td:first-child {
+    text-align: right;
+}
+
+td:last-child {
+    min-width: 0;
+    width: fit-content;
+}
+
+table td + td {
+    border-left: 1pt solid #4472C4;
+}

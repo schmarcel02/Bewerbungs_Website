@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="portfolio@localhost" uuid="064e37aa-1171-4328-972e-76a384234831">
+    <data-source source="LOCAL" name="hosttech" uuid="25caebf7-b2aa-42e5-9808-99ee1b718763">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/portfolio</jdbc-url>
+      <jdbc-url>jdbc:mysql://marcelschmutz.ch:3306/mschmutz_portfolio</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />
